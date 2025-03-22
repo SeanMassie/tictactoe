@@ -28,6 +28,34 @@
   color: #61dafb;
 }
 
+.grid-wrapper {
+  width: 80%; /* Adjust the width of the wrapper as needed */
+  height: 800px; /* Set the height of the parent container */
+  margin: 0 auto; /* Center the wrapper horizontally */
+  background-color: #f9f9f9; /* Optional: Background color for the container */
+  display: flex; /* To help align the grid container inside */
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking equal space */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows, each taking equal space */
+  gap: 0; /* No gap between the grid items */
+  width: 100%; /* Full width of the viewport */
+  height: 100%; /* Full height of the viewport */
+}
+
+.square {
+  background-color: #f0f0f0; /* Light background color */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  border: 1px solid #ccc; /* Optional: Border around each item */
+  font-size: 24px; /* Size of the text inside the grid items */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
