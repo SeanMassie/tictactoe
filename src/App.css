@@ -29,7 +29,7 @@
 }
 
 .grid-wrapper {
-  width: 80%; /* Adjust the width of the wrapper as needed */
+  width: 60%; /* Adjust the width of the wrapper as needed */
   height: 800px; /* Set the height of the parent container */
   margin: 0 auto; /* Center the wrapper horizontally */
   background-color: #f9f9f9; /* Optional: Background color for the container */
@@ -45,6 +45,14 @@
   gap: 0; /* No gap between the grid items */
   width: 100%; /* Full width of the viewport */
   height: 100%; /* Full height of the viewport */
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap:0;
+  height: 100%;
 }
 
 .square {
