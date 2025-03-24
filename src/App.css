@@ -29,30 +29,17 @@
 }
 
 .grid-wrapper {
-  width: 60%; /* Adjust the width of the wrapper as needed */
   height: 800px; /* Set the height of the parent container */
   margin: 0 auto; /* Center the wrapper horizontally */
   background-color: #f9f9f9; /* Optional: Background color for the container */
-  display: flex; /* To help align the grid container inside */
-  justify-content: center;
-  align-items: center;
+  display: grid; /* To help align the grid container inside */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking equal space */
-  grid-template-rows: repeat(3, 1fr); /* 3 rows, each taking equal space */
-  gap: 0; /* No gap between the grid items */
-  width: 100%; /* Full width of the viewport */
-  height: 100%; /* Full height of the viewport */
-}
-
-.button-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap:0;
-  height: 100%;
+.tictactoe-header {
+  grid-column: 1 / span 3;
+  grid-row: 1 / 2;
 }
 
 .square {

@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 
-
-
 export default function Board() {
     const [board, setBoard] = useState(Array(9).fill(null))
     const [history, setHistory] = useState(Array(9).fill(null))
@@ -44,23 +42,19 @@ export default function Board() {
     const buttonOnClick = (gameOver) ? () => {} : handleClick;
     return (
         <>
-            <h1>{status}</h1>
             <div className="grid-wrapper">
-                <div className="grid-container">        
-                    <Square value={0} board={board} handleClick={() => buttonOnClick(0, board, history, turn)} />
-                    <Square value={1} board={board} handleClick={() => buttonOnClick(1, board, history, turn)} />
-                    <Square value={2} board={board} handleClick={() => buttonOnClick(2, board, history, turn)} />
-                    <Square value={3} board={board} handleClick={() => buttonOnClick(3, board, history, turn)} />
-                    <Square value={4} board={board} handleClick={() => buttonOnClick(4, board, history, turn)} />
-                    <Square value={5} board={board} handleClick={() => buttonOnClick(5, board, history, turn)} />
-                    <Square value={6} board={board} handleClick={() => buttonOnClick(6, board, history, turn)} />
-                    <Square value={7} board={board} handleClick={() => buttonOnClick(7, board, history, turn)}/>
-                    <Square value={8} board={board} handleClick={() => buttonOnClick(8, board, history, turn)} />
-                </div>
-                <div className="button-container">
-                    <button onClick={() => undo(board, history)}>Undo</button>
-                    <button onClick={reset} style={{gridRow: "3/3"}}>Restart</button>
-                </div>
+                <h1 className="tictactoe-header">{status}</h1>
+                    <Square value={0} row={1} column={1} board={board} handleClick={() => buttonOnClick(0, board, history, turn)} />
+                    <Square value={1} row={1} column={2} board={board} handleClick={() => buttonOnClick(1, board, history, turn)} />
+                    <Square value={2} row={1} column={3} board={board} handleClick={() => buttonOnClick(2, board, history, turn)} />
+                    <Square value={3} row={2} column={1} board={board} handleClick={() => buttonOnClick(3, board, history, turn)} />
+                    <Square value={4} row={2} column={2} board={board} handleClick={() => buttonOnClick(4, board, history, turn)} />
+                    <Square value={5} row={2} column={3} board={board} handleClick={() => buttonOnClick(5, board, history, turn)} />
+                    <Square value={6} row={3} column={1} board={board} handleClick={() => buttonOnClick(6, board, history, turn)} />
+                    <Square value={7} row={3} column={2} board={board} handleClick={() => buttonOnClick(7, board, history, turn)}/>
+                    <Square value={8} row={3} column={3} board={board} handleClick={() => buttonOnClick(8, board, history, turn)} />
+                    <button style={{gridRow: "2/3", gridColumn:"5/6"}} onClick={() => undo(board, history)}>Undo</button>
+                    <button style={{gridRow: "4/5", gridColumn:"5/6"}} onClick={reset}>Restart</button>
             </div>
         </>
     )
@@ -94,9 +88,9 @@ function checkForWin(board) {
     return resp
 }
 
-function Square({board, value, handleClick}) {
+function Square({board, value, handleClick, row, column}) {
     return (
-        <button className="square" onClick={handleClick}>{board[value]}</button>
+        <button style={{gridRow: row + 1 + " / span 1", gridColumn: column + "/ span 1"}} className="square" onClick={handleClick}>{board[value]}</button>
     )
 }
 
